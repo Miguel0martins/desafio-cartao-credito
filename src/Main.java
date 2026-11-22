@@ -9,15 +9,16 @@ public class Main {
         CartaoDeCredito cartao = new CartaoDeCredito(limite);
 
         int sair = 1;
-        while(sair != 0) {
+        while (sair != 0) {
             System.out.println("Digite a descrição da compra:");
-            String descricao = leitura.next();
+            leitura.nextLine(); // limpa o buffer
+            String descricao = leitura.nextLine();
 
             System.out.println("Digite o valor da compra:");
             double valor = leitura.nextDouble();
 
             Compra compra = new Compra(descricao, valor);
-            boolean compraRealizada = cartao.lancaCompra(compra);
+            boolean compraRealizada = cartao.lancarCompra(compra);
 
             if (compraRealizada) {
                 System.out.println("Compra realizada!");
@@ -31,14 +32,12 @@ public class Main {
 
         System.out.println("***********************");
         System.out.println("COMPRAS REALIZADAS:\n");
-        Collections.sort(cartao.getCompras());
-        for (Compra c : cartao.getCompras()) {
-            System.out.println(c.getDescricao() + " - " +c.getValor());
+        Collections.sort(cartao.getListaCompras());
+        for (Compra c : cartao.getListaCompras()) {
+            System.out.println(c.getDescricao() + " - " + c.getValor());
         }
         System.out.println("\n***********************");
 
-        System.out.println("\nSaldo do cartão: " +cartao.getSaldo());
+        System.out.println("\nSaldo do cartão: " + cartao.getSaldo());
     }
-
-
 }

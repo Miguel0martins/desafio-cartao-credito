@@ -15,11 +15,6 @@ public class CartaoDeCredito {
         return Compras;
     }
 
-//    @Override
-//    public String toString() {
-//        return " compra : descrição = " + descricao + "valor =" + valor;
-//    }
-
     public CartaoDeCredito(double limite) {
         this.limite = limite;
         this.Compras = new ArrayList<>();
